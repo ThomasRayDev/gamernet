@@ -1,6 +1,12 @@
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 body {
@@ -19,4 +25,23 @@ body {
 
 .logo {
   color: #00afff;
+}
+
+.sidebar {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1a1a1a;
+}
+
+.wrapper {
+  margin-top: 3px;
+  display: flex;
+  height: 100vh;
+}
+
+.main {
+  width: 100%;
+  margin-left: 15px;
 }
