@@ -1,5 +1,10 @@
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import Main from './components/Main';
 import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+
+import './scss/all.scss';
 import { getResponse } from './serivces/testNetwork';
 
 function App() {
@@ -11,14 +16,13 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <button
-        onClick={() => {
-          get_response();
-        }}>
-        Отправить запрос
-      </button>
-    </div>
+    <>
+      <Header />
+      <div className="wrapper">
+        <Sidebar />
+        <Main />
+      </div>
+    </>
   );
 }
 
