@@ -31,6 +31,19 @@ body {
   color: #00afff;
 }
 
+.account button {
+  border: none;
+  padding: 8px 18px;
+  margin-left: 15px;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.account button:hover {
+  cursor: pointer;
+  background-color: #cccccc;
+}
+
 .sidebar {
   width: 200px;
   display: flex;
