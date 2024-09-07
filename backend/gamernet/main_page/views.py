@@ -1,6 +1,7 @@
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+
 from django.http import HttpResponse
-from django.template import loader
-from django.shortcuts import render
 
 from .models import Question
 
@@ -11,18 +12,19 @@ def index(request):
     return render(request, "main_page/index.html", context)
 
 
-def detail(request, question_id):
-    return HttpResponse("You're looking at question %s." % question_id)
+def sign_up(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        try:
+            user = User.objects.create_user(username=username,
+                                        email=email,
+                                        password=password)
+            return HttpResponse("Successful!")
+
+        except:
+            return HttpResponse("Error!")
 
 
-def results(request, question_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % question_id)
-
-
-def vote(request, question_id):
-    return HttpResponse("You're voting on question %s." % question_id)
-
-
-def test(request):
-    return HttpResponse("Хуй")
