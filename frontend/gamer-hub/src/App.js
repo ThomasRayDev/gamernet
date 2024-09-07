@@ -3,11 +3,18 @@ import './App.css';
 import { getResponse } from './serivces/testNetwork';
 
 function App() {
+  function get_response() {
+    getResponse().then((response) => {
+      console.log(response);
+      console.log(response.data);
+    });
+  }
+
   return (
     <div className="App">
       <button
         onClick={() => {
-          console.log(getResponse);
+          get_response();
         }}>
         Отправить запрос
       </button>
