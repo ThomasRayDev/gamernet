@@ -1,6 +1,13 @@
 import React from 'react';
+import { sendRequest } from '../serivces/testNetwork';
 
 function Header() {
+  function send_request() {
+    sendRequest().then((response) => {
+      console.log(response);
+    });
+  }
+
   return (
     <div className="header">
       <div className="logo">
@@ -8,7 +15,7 @@ function Header() {
       </div>
       <div className="account">
         Вы не авторизованы
-        <button>Войти</button>
+        <button onClick={send_request}>Войти</button>
       </div>
     </div>
   );
