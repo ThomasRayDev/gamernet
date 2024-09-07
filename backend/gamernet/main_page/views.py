@@ -7,11 +7,11 @@ from django.middleware.csrf import get_token
 
 from .models import Question
 
+import json
+
 
 def index(request):
-    latest_question_list = Question.objects.order_by("-pub_date")[:5]
-    context = {"latest_question_list": latest_question_list}
-    return render(request, "main_page/index.html", context)
+    return render(request, "main_page/index.html")
 
 
 def csrf(request):
@@ -19,9 +19,12 @@ def csrf(request):
 
 def sign_up(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
+
+        data = json.loads(request.body)
+
+        username = data.get('username')
+        email = data.get('email')
+        password = data.get('password')
 
         try:
             user = User.objects.create_user(username=username,
