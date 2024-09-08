@@ -31,7 +31,11 @@ body {
   color: #00afff;
 }
 
-.account button {
+.account {
+  position: relative;
+}
+
+.account-button {
   border: none;
   padding: 8px 18px;
   margin-left: 15px;
@@ -39,7 +43,7 @@ body {
   transition: all 0.2s;
 }
 
-.account button:hover {
+.account-button:hover {
   cursor: pointer;
   background-color: #cccccc;
 }
@@ -108,4 +112,63 @@ body {
 
 .red {
   color: #ff0000;
+}
+
+.login-popup {
+  position: absolute;
+  background-color: #3b3b3b;
+  color: #cccccc;
+  width: 300px;
+  height: 300px;
+  left: -100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  top: 35px;
+}
+
+.login-popup a {
+  color: #94d6ff;
+}
+
+.login-popup form {
+  width: 230px;
+}
+
+.login-popup__input {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-popup button {
+  border: none;
+  padding: 8px 18px;
+  border-radius: 10px;
+  transition: all 0.2s;
+  margin: 15px 0;
+}
+
+.login-popup button:hover {
+  cursor: pointer;
+  background-color: #cccccc;
+}
+
+.login-popup__input input {
+  border: 1px solid #303030;
+  background-color: #303030;
+  color: #cccccc;
+  border-radius: 5px;
+  padding: 5px;
+  width: 90%;
+  margin-top: 5px;
+}
+
+.login-popup__input input:focus {
+  background-color: #202020;
 }
