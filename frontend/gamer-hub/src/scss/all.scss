@@ -31,10 +31,80 @@ body {
   color: #00afff;
 }
 
+.account {
+  position: relative;
+
+  &-button {
+    margin-left: 15px;
+  }
+
+  &-popup {
+    position: absolute;
+    background-color: #3b3b3b;
+    color: #cccccc;
+    width: 300px;
+    height: 300px;
+    left: -100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    top: 35px;
+
+    a {
+      color: #94d6ff;
+    }
+
+    form {
+      width: 230px;
+    }
+
+    &__input {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      input {
+        border: 1px solid #303030;
+        background-color: #303030;
+        color: #cccccc;
+        border-radius: 5px;
+        padding: 5px;
+        width: 90%;
+        margin-top: 5px;
+
+        &:focus {
+          background-color: #202020;
+        }
+      }
+    }
+
+    &__check input {
+      margin-right: 5px;
+    }
+
+    button {
+      border: none;
+      padding: 8px 18px;
+      border-radius: 10px;
+      transition: all 0.2s;
+      margin: 15px 0;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #cccccc;
+      }
+    }
+  }
+}
+
 .account button {
   border: none;
   padding: 8px 18px;
-  margin-left: 15px;
   border-radius: 10px;
   transition: all 0.2s;
 
