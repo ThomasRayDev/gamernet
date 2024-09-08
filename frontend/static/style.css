@@ -172,3 +172,80 @@ body {
 .login-popup__input input:focus {
   background-color: #202020;
 }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-form {
+  background-color: #3b3b3b;
+  width: 600px;
+  border-radius: 15px;
+}
+
+.register-form__header {
+  padding: 10px 15px;
+  border-bottom: 1px solid #4f4f4f;
+}
+
+.form-row {
+  display: flex;
+  width: 100%;
+}
+
+dt {
+  width: 200px;
+  padding: 20px 10px;
+  text-align: end;
+  border-right: 1px solid #4f4f4f;
+}
+
+dd {
+  background-color: #303030;
+  padding: 20px 10px;
+  width: 70%;
+}
+
+dd input {
+  width: 90%;
+  border: 1px solid #3b3b3b;
+  background-color: #3b3b3b;
+  color: #cccccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.form-explain {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.register-form__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #4f4f4f;
+}
+
+.register-form__footer button {
+  border: none;
+  padding: 8px 18px;
+  margin-left: 15px;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.register-form__footer button:hover {
+  cursor: pointer;
+  background-color: #cccccc;
+}
