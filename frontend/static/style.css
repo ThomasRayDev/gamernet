@@ -31,7 +31,11 @@ body {
   color: #00afff;
 }
 
-.account button {
+.account {
+  position: relative;
+}
+
+.account-button {
   border: none;
   padding: 8px 18px;
   margin-left: 15px;
@@ -39,7 +43,7 @@ body {
   transition: all 0.2s;
 }
 
-.account button:hover {
+.account-button:hover {
   cursor: pointer;
   background-color: #cccccc;
 }
@@ -108,4 +112,140 @@ body {
 
 .red {
   color: #ff0000;
+}
+
+.login-popup {
+  position: absolute;
+  background-color: #3b3b3b;
+  color: #cccccc;
+  width: 300px;
+  height: 300px;
+  left: -100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  top: 35px;
+}
+
+.login-popup a {
+  color: #94d6ff;
+}
+
+.login-popup form {
+  width: 230px;
+}
+
+.login-popup__input {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-popup button {
+  border: none;
+  padding: 8px 18px;
+  border-radius: 10px;
+  transition: all 0.2s;
+  margin: 15px 0;
+}
+
+.login-popup button:hover {
+  cursor: pointer;
+  background-color: #cccccc;
+}
+
+.login-popup__input input {
+  border: 1px solid #303030;
+  background-color: #303030;
+  color: #cccccc;
+  border-radius: 5px;
+  padding: 5px;
+  width: 90%;
+  margin-top: 5px;
+}
+
+.login-popup__input input:focus {
+  background-color: #202020;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-form {
+  background-color: #3b3b3b;
+  width: 600px;
+  border-radius: 15px;
+}
+
+.register-form__header {
+  padding: 10px 15px;
+  border-bottom: 1px solid #4f4f4f;
+}
+
+.form-row {
+  display: flex;
+  width: 100%;
+}
+
+dt {
+  width: 200px;
+  padding: 20px 10px;
+  text-align: end;
+  border-right: 1px solid #4f4f4f;
+}
+
+dd {
+  background-color: #303030;
+  padding: 20px 10px;
+  width: 70%;
+}
+
+dd input {
+  width: 90%;
+  border: 1px solid #3b3b3b;
+  background-color: #3b3b3b;
+  color: #cccccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.form-explain {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.register-form__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #4f4f4f;
+}
+
+.register-form__footer button {
+  border: none;
+  padding: 8px 18px;
+  margin-left: 15px;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.register-form__footer button:hover {
+  cursor: pointer;
+  background-color: #cccccc;
 }
