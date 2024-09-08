@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
 
 from django.http import HttpResponse, JsonResponse
 
 from django.middleware.csrf import get_token
 
-from .models import Question
+from django.contrib.auth import authenticate, login
+
+from .models import Gamers
 
 import json
 
@@ -18,7 +19,7 @@ def csrf(request):
     return JsonResponse({'csrfToken': get_token(request)})
 
 def sign_up(request):
-    if request.method == 'POST':
+    if request.method == 'POST' or request.method == 'GET' :
 
         data = json.loads(request.body)
 
@@ -26,13 +27,12 @@ def sign_up(request):
         email = data.get('email')
         password = data.get('password')
 
+        if Gamers.objects.filter(email=email).exists():
+            return HttpResponse("Email already in use", status=400)
+
         try:
-            user = User.objects.create_user(username=username,
-                                        email=email,
-                                        password=password)
-            return HttpResponse("Successful!")
+            user = Gamers.objects.create_user(email=email, username=username, password=password)
+            return HttpResponse("User created successfully", status=201)
 
-        except:
-            return HttpResponse("Error!")
-
-
+        except Exception as e:
+            return HttpResponse(f"Error: {str(e)}", status=400)
