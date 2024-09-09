@@ -31,37 +31,17 @@ def sign_up(request):
         except Exception as e:
             return HttpResponse(f"Error: {str(e)}", status=400)
 
-        # username = 'Dima'
-        # email = 'gelenidze.2d@mail.ru'
-        # password = '23092004'
-
 
         if Gamers.objects.filter(email=email).exists():
             return HttpResponse("Email already in use", status=400)
 
 
         try:
-            user = Gamers.objects.create_user(email=email, username=username, password=password)
-            return HttpResponse("User created successfully", status=201)
+            Gamers.objects.create_user(email=email, username=username, password=password)
 
         except Exception as e:
             return HttpResponse(f"Error: {str(e)}", status=400)
 
-
-def sign_in(request):
-    if request.method == 'GET':
-
-        # try:
-        #     data = json.loads(request.body)
-
-        #     email = data.get('email')
-        #     password = data.get('password')
-
-        # except Exception as e:
-        #     return HttpResponse(f"Error: {str(e)}", status=400)
-
-        email = 'Dima'
-        password = 'Dima'
 
 
         user = authenticate(request, email=email, password=password)
@@ -75,7 +55,39 @@ def sign_in(request):
 
             print('---', user.username + '#' + user.id, user.email)
 
-            return HttpResponse("User authenticated successfully", status=200)
+            return HttpResponse("User has been created!" + " - Hello " + user.username + '#' + user.id + " " + user.email, status=200)
+
+        else:
+            return HttpResponse("Invalid credentials", status=401)
+
+
+
+
+def sign_in(request):
+    if request.method == 'POST':
+
+        try:
+            data = json.loads(request.body)
+
+            email = data.get('email')
+            password = data.get('password')
+
+        except Exception as e:
+            return HttpResponse(f"Error: {str(e)}", status=400)
+
+
+        user = authenticate(request, email=email, password=password)
+
+        if user is not None:
+            login(request, user)
+
+            request.session['user_id'] = user.id
+            request.session['username'] = user.username
+            request.session['email'] = user.email
+
+            print('---', user.username + '#' + user.id, user.email)
+
+            return HttpResponse("User authenticated successfully" + " - Hello " + user.username + '#' + user.id + " " + user.email, status=200)
         else:
             return HttpResponse("Invalid credentials", status=401)
 
@@ -91,5 +103,7 @@ def test(request):
         user_id = request.session.get('user_id')
         username = request.session.get('username')
         email = request.session.get('email')
+
+        print(user_id)
 
         return HttpResponse(str(username) + '#' + str(user_id), email, status=200)
