@@ -4,7 +4,7 @@ import Main from './components/Main';
 import logo from './logo.svg';
 // import './App.css';
 
-import './scss/all.scss';
+import './scss/app.scss';
 import { getResponse } from './serivces/testNetwork';
 
 function App() {
