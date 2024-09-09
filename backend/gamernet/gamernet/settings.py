@@ -139,4 +139,7 @@ CSRF_TRUSTED_ORIGINS = [
   'http://127.0.0.1:3000',
 ]
 
-# AUTH_USER_MODEL = 'main_page.Users'
+AUTHENTICATION_BACKENDS = (
+    'main_page.backends.GamersBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
