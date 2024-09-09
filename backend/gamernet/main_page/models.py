@@ -23,8 +23,7 @@ class CustomUserManager(BaseUserManager):
 
     def generate_user_id(self):
         while True:
-            unique_tag = get_random_string(length=4, allowed_chars='0123456789')
-            user_id = f"#{unique_tag}"
+            user_id = get_random_string(length=4, allowed_chars='0123456789')
             if not Gamers.objects.filter(id=user_id).exists():
                 return user_id
 
