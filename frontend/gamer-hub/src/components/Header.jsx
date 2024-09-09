@@ -1,15 +1,8 @@
 import React from 'react';
-import { sendRequest } from '../serivces/testNetwork';
 
-function Header() {
+function Header({ onClickRegister }) {
   const [isVisiblePopup, setVisiblePopup] = React.useState(false);
   const popupRef = React.useRef(null);
-
-  // function send_request() {
-  //   sendRequest().then((response) => {
-  //     console.log(response);
-  //   });
-  // }
 
   const handleClickOutsidePopup = (event) => {
     if (popupRef.current && !popupRef.current.contains(event.target)) {
@@ -53,7 +46,13 @@ function Header() {
               <button type="submit">Войти</button>
             </form>
             У вас ещё нет учётной записи?
-            <a href="">Зарегистрируйтесь</a>
+            <a
+              onClick={() => {
+                onClickRegister(true);
+                setVisiblePopup(false);
+              }}>
+              Зарегистрируйтесь
+            </a>
           </div>
         )}
       </div>
